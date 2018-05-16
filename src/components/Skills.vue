@@ -8,6 +8,7 @@
             <li v-for="(data, index) in skills" :key='index'>{{ index }}. {{ data.skill }}</li>
         </ul>
         <div v-bind:class="alertObject"></div>
+        <div v-bind:style="{ backgroundColor: bgColor, width: bgWidth, height: bgHeight }"></div>
     </div>
       
 <!--      <p v-if="skills.length >= 1">You have more than one skill</p>
@@ -28,7 +29,10 @@ export default {
           ],
           alertObject: {
             alert: true,
-          }
+          },
+          bgColor: 'yellow',
+          bgWidth: '100%',
+          bgHeight: '30px'
       }
   }
 }

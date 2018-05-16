@@ -3,7 +3,8 @@
     <h1>{{ name }}</h1>
     <div class="holder">
         <form @submit.prevent="addSkill">
-            <input type="text" placeholder="Enter a skill you have" v-model="skill">
+            <input type="text" placeholder="Enter a skill you have" v-model="skill" v-validate="'min:5'" name="skill">
+            <span class="alert" v-show="errors.has('skill')">{{ errors.first('skill') }}</span>
         </form>
         {{ skill }}
         <ul>
@@ -29,8 +30,16 @@ export default {
     // Add this section:
   methods : {
       addSkill(){
-          this.skills.push({skill: this.skill});
-          this.skill = '';
+          this.$validator.validateAll().then((result) => {
+              if(result) {
+                  this.skills.push({skill: this.skill});
+                  this.skill = '';
+              }
+              else {
+                 // console.log('Not Valid');
+              }
+          })
+          
       }
   }
 }

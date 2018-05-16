@@ -10,8 +10,12 @@
         </form>
        
         <ul>
-            <transition-group name="lists" enter-active-class="animated bounceInUp" leave-active-class="animated bounceInDown"></transition-group>
-            <li v-for="(data, index) in skills" :key='index'>{{ data.skill }}</li>
+            <transition-group name="list" enter-active-class="animated bounceInUp" leave-active-class="animated bounceOutDown">
+                <li v-for="(data, index) in skills" :key='index'>
+                    {{ data.skill }}
+                    <i class="fa fa-minus-circle" v-on:click="remove(index)"></i>
+                </li>
+            </transition-group>
         </ul>
     </div>
   </div>
@@ -43,6 +47,9 @@ export default {
               }
           })
           
+      },
+      remove(id) {
+        this.skills.splice(id, 1);
       }
   }
 }

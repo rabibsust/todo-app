@@ -4,10 +4,13 @@
     <div class="holder">
         <form @submit.prevent="addSkill">
             <input type="text" placeholder="Enter a skill you have" v-model="skill" v-validate="'min:5'" name="skill">
-            <span class="alert" v-show="errors.has('skill')">{{ errors.first('skill') }}</span>
+            <transition name="alert-in" enter-active-class="animated fadeInUp" leave-active-class="animated fadeInDown">
+                <span class="alert" v-show="errors.has('skill')">{{ errors.first('skill') }}</span>
+            </transition>
         </form>
-        {{ skill }}
+       
         <ul>
+            <transition-group name="lists" enter-active-class="animated bounceInUp" leave-active-class="animated bounceInDown"></transition-group>
             <li v-for="(data, index) in skills" :key='index'>{{ data.skill }}</li>
         </ul>
     </div>

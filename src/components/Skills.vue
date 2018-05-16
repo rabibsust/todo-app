@@ -7,7 +7,9 @@
         <ul>
             <li v-for="(data, index) in skills" :key='index'>{{ index }}. {{ data.skill }}</li>
         </ul>
+        <div v-bind:class="alertObject"></div>
     </div>
+      
 <!--      <p v-if="skills.length >= 1">You have more than one skill</p>
       <p v-else>You have less than or equal to one skill</p>-->
   </div>
@@ -23,7 +25,10 @@ export default {
           skills: [
               { "skill": "Vue.JS" },
               { "skill": "Laravel" }
-          ]
+          ],
+          alertObject: {
+            alert: true,
+          }
       }
   }
 }
@@ -31,5 +36,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style src="../../public/style.css" scoped>
-
 </style>

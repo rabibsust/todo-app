@@ -1,5 +1,5 @@
 # todo-app
-This app is created in Vue.js. Only for practice Vue JS
+This app is created in Vue.js. Only for practice Vue JS. Vue.JS is simple lightweight Javascript framework.
 # Installation
 - Clone the repository using git clone https://github.com/rabibsust/todo-app.git
 # Check if npm and node are installed using
